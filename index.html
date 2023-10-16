@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Book</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gradientMiddle: '#F1FCF4',
+                        gradientBottom: '#D9EDDF',
+                        myGrayGreen: '#97B1AB',
+                        myDarkGreen: '#344B46',
+                        myRed: '#FAA0A0',
+                        myHoverRed: '#FA8072',
+                        myGreen: '#C1E1C1',
+                        myHoverGreen: '#93C572'
+                    },
+                    fontFamily: {
+                        sans: ['Jost', 'sans-serif'],
+                        myFont: ['"Abril Fatface"', 'cursive']
+                    },
+                    gridTemplateColumns: {
+                        '3': 'repeat(auto-fill, minmax(275px, 1fr))'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col p-5 bg-gradient-to-b from-white via-gray-200 to-gray-300">
+    <!-- Title Container -->
+    <div class="mb-16">
+        <h1 class="font-myFont font-bold text-5xl text-center tracking-wider text-gray-700">Online Book Librairy</h1>
+    </div>
+
+    <div class="container mx-auto">
+        <div class="flex flex-col lg:flex-row justify-center items-start gap-7 lg:gap-10 xl:gap-16">
+            <!-- Left container with the form to add a new book -->
+            <div class="bg-myGrayGreen lg:w-1/3 w-3/4 m-0 mx-auto p-5">
+                <div class="container w-full mb-2">
+                    <h2 class="font-myFont text-2xl font-bold text-center tracking-wide text-gray-700 mb-7">Add a new book</h2>
+                </div>
+                <!-- Form to add a new book -->
+                <div class="container w-full">
+                    <form id="myForm">
+                        <!-- Name of the book field -->
+                        <div class="w-full mb-4">
+                            <label for="title" class="block">Title</label>
+                            <input type="text" id="title" name="title" class="w-full p-2 focus:outline-none">
+                        </div>
+
+                        <!-- Author field -->
+                        <div class="w-full mb-4">
+                            <label for="author" class="block">Author</label>
+                            <input type="text" id="author" name="author" class="w-full p-2 focus:outline-none">
+                        </div>
+                        <div class="w-full mb-4 flex gap-[10%]">
+                            <!-- Total page field -->
+                            <div class="w-1/3">
+                                <label for="pages" class="block">Total of pages:</label>
+                                <input type="text" id="pages" name="pages" class="w-full p-2 focus:outline-none" maxlength="4">
+                            </div>
+
+                            <!-- Published date field -->
+                            <div class="w-1/3">
+                                <label for="publish_date" class="block">Published date:</label>
+                                <input type="text" id="publish_date" name="publish_date" class="w-full p-2 focus:outline-none" maxlength="4">
+                            </div>
+
+                            <!-- Select list -->
+							<div class="w-1/3">
+								<label for="status" class="block font-medium">Book status:</label>
+								<select id="status" class="focus:outline-none block w-full p-2.5">
+									<option value="read">Read</option>
+									<option value="notRead">Not Read</option>
+								</select>
+							</div>
+                        </div>
+						<div class="flex justify-between items-center">
+                            <div id="errorMsg" class="invisible">
+                                <p class="text-sm text-red-600">
+                                    Please fill all the fields*
+                                </p>
+                            </div>
+							<button type="submit" id="addBtn" class="bg-myDarkGreen text-white hover:text-gradientBottom font-semibold py-2 px-4 border border-gray-400 shadow">
+								Add new book
+							</button>
+						</div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right side container that will show all the books -->
+            <div class="bg-myGrayGreen w-3/4 m-0 mx-auto p-6 min-h-[316px]">
+                <div class="container w-full mb-2">
+                    <h2 class="font-myFont text-2xl font-bold text-center tracking-wide text-gray-700 mb-7">Your library</h2>
+                </div>
+                <div class="grid grid-cols-3 gap-3.5" id="cardContainer">
+                    <!-- javascript book cards -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-auto">
+        <div class="flex justify-center items-center pt-5">
+            <p class="font-myFont text-lg font-bold text-center tracking-wide mb-0">
+                The Odin Project - <a href="https://github.com/JeanLoupD" target="_blank">JeanLoupD</a>
+            </p>
+            <a href="https://github.com/JeanLoupD" target="_blank">
+                <img src="assets/icons/github.png" alt="github icon" class="w-6 h-6">
+            </a>
+        </div>
+    </footer>
+
+    <script src="./assets/js/javascript.js"></script>
+</body>
+</html>
